@@ -119,7 +119,6 @@ figure_template = r"""
 """
 
 
-###################################################################################################
 def fill_latex_table(table_data=None, 
                      caption="My Table"):
 
@@ -128,8 +127,7 @@ def fill_latex_table(table_data=None,
     filled_table = filled_table.replace("MY_TABLE_CAPTION", caption)
     
     n_rows = len(table_data)
-    n_columns = len(table_data[0])
-   
+    n_columns = len(table_data[0])   
     table_data_str = '{' + '|c'*n_columns + '|} \\hline \n'
     for i in range(n_rows): #row
         table_data_str += table_data[i][0]
@@ -142,7 +140,6 @@ def fill_latex_table(table_data=None,
     return filled_table
 
     
-###################################################################################################
 def create_figure(figure=None,
                   width=1.0,
                   caption="My Figure",
