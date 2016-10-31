@@ -1,5 +1,4 @@
 """Test regularized Boosting 
-
 """
 
 # Author: Jinchao Liu <liujinchao2000@gmail.com>
@@ -15,13 +14,9 @@ from wukong.ensemble.weight_boosting import AdaBoostClassifier as MyAdaBoostClas
 from wukong.classifier.naive_bayes import GaussianNB as MyGaussianNB
 from wukong.ensemble.regularized_boosting import *
 
-
-
-
 if __name__ == "__main__":
 
     n_learners = 100
-
     dtree3 = DecisionTreeClassifier(max_depth=3)
     ab3 = MyAdaBoostClassifier(DecisionTreeClassifier(max_depth=3), 
                                n_learners=n_learners)
@@ -41,10 +36,3 @@ if __name__ == "__main__":
                   noise_level=0.0,
                   report_name='SoftMargin_reg_5_runs_10_kfold_10_nlearners_100_noise_00_methods_4',
                   verbose=True)
-
-
-
-
-
-
-
