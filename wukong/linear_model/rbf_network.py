@@ -7,8 +7,8 @@
 import numpy as np
 from numpy.linalg import inv
 from scipy.cluster.vq import vq, kmeans, whiten
-from wukong.optimize import line_search
-from wukong.base import BaseLearner
+from ..base import BaseLearner
+from ..optimize import line_search
 
 
 __all__=[
