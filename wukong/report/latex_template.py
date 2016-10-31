@@ -152,19 +152,3 @@ def create_figure(figure=None,
     #tex_figure = tex_figure.replace('My_FIGURE_HEIGHT', str(height))
     return tex_figure
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
