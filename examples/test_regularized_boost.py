@@ -1,4 +1,9 @@
-"""Test regularized Boosting 
+"""An example of testing regularized boosting machines on several  
+benchmark datasets. 
+
+   We tested two regularized boosting machines along with the standard 
+   one for comparison. Decision trees from sklearn were used as weak 
+   classifiers.
 """
 
 # Author: Jinchao Liu <liujinchao2000@gmail.com>
@@ -14,8 +19,8 @@ from wukong.ensemble.weight_boosting import AdaBoostClassifier as MyAdaBoostClas
 from wukong.classifier.naive_bayes import GaussianNB as MyGaussianNB
 from wukong.ensemble.regularized_boosting import *
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     n_learners = 100
     dtree3 = DecisionTreeClassifier(max_depth=3)
     ab3 = MyAdaBoostClassifier(DecisionTreeClassifier(max_depth=3), 
