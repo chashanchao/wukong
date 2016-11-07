@@ -1,10 +1,8 @@
 """Regularized boosting  
-
 """
 
 # Author: Jinchao Liu <liujinchao2000@gmail.com>
 # License: BSD 
-
 
 import numbers
 import numpy as np
@@ -12,14 +10,12 @@ import copy
 from ..base import clone
 from ..ensemble.weight_boosting import BaseWeightBoosting
 
-
 __all__=[
     "SoftMarginBoostClassifier","InputDependentBoostClassifier", "ARBoostClassifier"
 ]
 
 
 EPSILON = 1e-10
-
 class SoftMarginBoostClassifier(BaseWeightBoosting):
     """Soft margin boosting described in Ratsch's paper "Soft margins for adaboost" 
             
@@ -47,8 +43,7 @@ class SoftMarginBoostClassifier(BaseWeightBoosting):
         super(SoftMarginBoostClassifier, self).__init__(base_learner, 
                                                         learner_params, 
                                                         n_learners, 
-                                                        verbose)        
-       
+                                                        verbose)               
         self.learning_rate = learning_rate 
         self.weighted_errors = []
         
@@ -85,8 +80,7 @@ class SoftMarginBoostClassifier(BaseWeightBoosting):
         #
         # 0.5 is used in the mentioned paper 
         #
-        self.regularization_rate = regularization_rate
-     
+        self.regularization_rate = regularization_rate    
 
     def _check_stop_criteria(self):
         """Overridden. Check all the stop criteria, return True if anyone of them is satified, 
@@ -98,7 +92,6 @@ class SoftMarginBoostClassifier(BaseWeightBoosting):
             early_stopping = True
         
         return early_stopping or super(SoftMarginBoostClassifier, self)._check_stop_criteria()
-
 
     def _update_sample_weights(self):
         """Overridden. Update samples' weight."""
@@ -123,8 +116,7 @@ class SoftMarginBoostClassifier(BaseWeightBoosting):
         else:
             ws = np.array(self.staged_sample_weights)
             ats = np.reshape(np.array(self.learner_weights_), (len(self.learner_weights_), 1))        
-            sample_influence = np.sum(ws*ats, axis=0)
-          
+            sample_influence = np.sum(ws*ats, axis=0)          
         # 
         # Compute sample weights for next iteration
         #
@@ -198,8 +190,7 @@ class InputDependentBoostClassifier(BaseWeightBoosting):
         super(InputDependentBoostClassifier, self).__init__(base_learner, 
                                                             learner_params, 
                                                             n_learners, 
-                                                            verbose)        
-       
+                                                            verbose)      
         self.learning_rate = learning_rate 
         self.weighted_errors = []
         
